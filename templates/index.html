@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutoring Bot - ML Teacher</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Tutoring Bot</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="progressBtn" title="Progress">
+                        <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="btn-icon" id="resetBtn" title="Qayta boshlash">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-book"></i> Mavzular</h3>
+                </div>
+                <div class="topics-list">
+                    <div class="topic-item" data-topic="supervised">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Supervised Learning</span>
+                    </div>
+                    <div class="topic-item" data-topic="unsupervised">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Unsupervised Learning</span>
+                    </div>
+                    <div class="topic-item" data-topic="neural">
+                        <i class="fas fa-brain"></i>
+                        <span>Neural Networks</span>
+                    </div>
+                    <div class="topic-item" data-topic="regression">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Regression</span>
+                    </div>
+                    <div class="topic-item" data-topic="classification">
+                        <i class="fas fa-tags"></i>
+                        <span>Classification</span>
+                    </div>
+                    <div class="topic-item" data-topic="python">
+                        <i class="fab fa-python"></i>
+                        <span>Python Asoslari</span>
+                    </div>
+                    <div class="topic-item" data-topic="numpy">
+                        <i class="fas fa-calculator"></i>
+                        <span>NumPy</span>
+                    </div>
+                    <div class="topic-item" data-topic="pandas">
+                        <i class="fas fa-table"></i>
+                        <span>Pandas</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Chat area -->
+            <div class="chat-container">
+                <!-- Welcome screen -->
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-content">
+                        <i class="fas fa-robot welcome-icon"></i>
+                        <h1>AI Tutoring Bot</h1>
+                        <p>Machine Learning va Python o'rgatuvchi AI bot</p>
+                        <div class="feature-cards">
+                            <div class="feature-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>ML Konseptlari</h3>
+                                <p>Machine Learning asoslarini o'rganing</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-code"></i>
+                                <h3>Python Kodlari</h3>
+                                <p>Amaliy misollar bilan o'rganing</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-clipboard-check"></i>
+                                <h3>Testlar</h3>
+                                <p>Bilimingizni tekshiring</p>
+                            </div>
+                        </div>
+                        <button class="btn-start" id="startBtn">
+                            <i class="fas fa-play"></i> Boshlash
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat messages -->
+                <div class="chat-messages" id="chatMessages" style="display: none;">
+                    <!-- Xabarlar bu yerda ko'rinadi -->
+                </div>
+
+                <!-- Input area -->
+                <div class="chat-input-area" id="inputArea" style="display: none;">
+                    <div class="suggestions" id="suggestions">
+                        <!-- Tavsiyalar bu yerda -->
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="userInput" 
+                            placeholder="Savolingizni yozing..."
+                            rows="1"
+                        ></textarea>
+                        <button class="btn-send" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal" id="progressModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-chart-line"></i> Sizning Progressingiz</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-book-open"></i>
+                        <div class="stat-info">
+                            <h3 id="topicsLearned">0</h3>
+                            <p>O'rganilgan mavzular</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clipboard-check"></i>
+                        <div class="stat-info">
+                            <h3 id="quizzesCompleted">0</h3>
+                            <p>Bajarilgan testlar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="stat-info">
+                            <h3 id="correctAnswers">0</h3>
+                            <p>To'g'ri javoblar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-percentage"></i>
+                        <div class="stat-info">
+                            <h3 id="accuracy">0%</h3>
+                            <p>Aniqlik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading indicator -->
+    <div class="loading" id="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

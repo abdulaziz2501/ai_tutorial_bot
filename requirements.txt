@@ -1,0 +1,27 @@
+# AI Tutoring Bot - ML Teacher
+# Python 3.8+ talab qilinadi
+
+# Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+
+# AI va Natural Language Processing
+openai==1.3.0
+anthropic==0.7.0
+
+# Ma'lumotlar bilan ishlash
+numpy==1.24.3
+pandas==2.0.3
+
+# Machine Learning
+scikit-learn==1.3.0
+
+# Vizualizatsiya
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Utility
+requests==2.31.0
