@@ -1,0 +1,74 @@
+📁 UZBEK AUDIO AI PLATFORM - LOYIHA STRUKTURASI
+═══════════════════════════════════════════════════════════
+
+uzbek-audio-ai-platform/
+│
+├── 📄 README.md                    # To'liq qo'llanma (O'zbek/English)
+├── 📄 QUICK_START.md               # Tezkor boshlash qo'llanmasi
+├── 📄 requirements.txt             # Python dependencies
+├── 📄 .env.example                 # Environment variables namunasi
+├── 📄 .gitignore                   # Git ignore qoidalari
+├── 🐍 app.py                       # ASOSIY STREAMLIT INTERFEYS
+│
+├── 📁 audio_utils/                 # Audio qayta ishlash modullari
+│   ├── __init__.py                 # Package init
+│   ├── loader.py                   # Audio/video yuklash va konvertatsiya
+│   ├── preprocessing.py            # Shovqin tozalash, normalizatsiya
+│   └── silence_removal.py          # Sukut kesish
+│
+├── 📁 stt/                         # Speech-to-Text moduli
+│   ├── __init__.py                 # Package init
+│   └── whisper_model.py            # OpenAI Whisper STT
+│
+├── 📁 diarization/                 # Speaker Diarization
+│   ├── __init__.py                 # Package init
+│   └── speaker.py                  # Spikerlarni aniqlash
+│
+├── 📁 emotion/                     # Emotion Detection
+│   ├── __init__.py                 # Package init
+│   └── emotion_model.py            # Hissiy holatni aniqlash
+│
+├── 📁 subtitles/                   # Subtitle Generation
+│   ├── __init__.py                 # Package init
+│   └── srt_generator.py            # SRT/VTT yaratish
+│
+├── 📁 models/                      # ML modellar (auto download)
+│   └── (Whisper modellari shu yerda saqlanadi)
+│
+├── 📁 uploads/                     # Yuklangan fayllar
+│   └── (Foydalanuvchi yuklagan audio/video)
+│
+└── 📁 outputs/                     # Natija fayllari
+    ├── transcription.txt           # Transkripsiya matni
+    ├── subtitles.srt               # SRT subtitl
+    ├── subtitles.vtt               # VTT subtitl
+    └── full_report.txt             # To'liq hisobot
+
+═══════════════════════════════════════════════════════════
+STATISTICS
+═══════════════════════════════════════════════════════════
+
+📊 Kod Statistikasi:
+   • Python fayllari: 13 ta
+   • Umumiy kod qatorlari: ~3061 qator
+   • Modullar: 6 ta (audio_utils, stt, diarization, emotion, subtitles, app)
+   • Funksiyalar: 50+ ta
+
+📦 Dependencies:
+   • Streamlit - Web interfeys
+   • Whisper - Speech-to-Text
+   • Librosa - Audio processing
+   • PyDub - Audio manipulation
+   • PyTorch - Deep Learning
+   • NumPy, Pandas - Data processing
+   • Va boshqalar...
+
+🎯 Asosiy Funksiyalar:
+   ✅ Audio/Video yuklash (8+ format)
+   ✅ Audio preprocessing (shovqin tozalash, sukut kesish)
+   ✅ Speech-to-Text (O'zbek tili support)
+   ✅ Speaker Diarization (kim gapirayotgan)
+   ✅ Emotion Detection (5 emotsiya turi)
+   ✅ Subtitle Generation (SRT/VTT)
+
+═══════════════════════════════════════════════════════════
